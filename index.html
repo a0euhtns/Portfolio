@@ -12,13 +12,16 @@
 
 <body>
     <script>
+        window.onscroll = funcion() {sticky()};
+        let nav = document.getElementById("topNav");
+        let pos = nav.offsetTop;
+        function sticky() {
+            if (window.pageYOffset >= pos) nav.classList.add("sticky");
+            else nav.classList.remove("sticky");
+        }
         function topNav() {
-            var x = document.getElementById("topNav");
-            if (x.className === "topnav") {
-                x.className += " responsive";
-            } else {
-                x.className = "topnav";
-            }
+            if (nav.className === "topnav") nav.className += " responsive";
+            else nav.className = "topnav";
         }
     </script>
     <div class="topnav" id="topNav">
@@ -29,7 +32,6 @@
         <a href="javascript:void(0);" class="icon" onclick="topNav()">
             <i class="fa fa-bars"></i>
         </a>
-        
     </div>
 </body>
 
